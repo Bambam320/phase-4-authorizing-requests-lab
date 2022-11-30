@@ -18,9 +18,10 @@ function Article() {
     setState(initialState);
     fetch(`/articles/${id}`).then((r) => {
       if (r.ok) {
-        r.json().then((article) =>
+        r.json().then((article) =>{
+        console.log("article", article)
           setState({ article, error: null, status: "resolved" })
-        );
+        });
       } else {
         r.json().then((message) =>
           setState({ article: null, error: message.error, status: "rejected" })
